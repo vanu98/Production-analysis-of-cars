@@ -1,0 +1,136 @@
+#Production based on countries
+import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv('cars1111.csv')
+plt.figure(figsize=(20,10))
+plt.xlabel('COUNTRIES')
+plt.ylabel('AMOUNT OF PRODUCTION')
+plt.annotate('The highest production', xy=(0, 850), xytext=(3, 850),
+            arrowprops=dict(facecolor='black', shrink=0.05),
+            )
+plt.annotate('The lowest production', xy=(400, 0), xytext=(400, 8),
+            arrowprops=dict(facecolor='black', shrink=0.05),
+            )
+df_counts = df['Origin'].value_counts()
+df_counts.plot(kind = 'bar')
+plt.legend()
+df_counts
+
+#Displacement analysis
+plt.figure(figsize=(20,10))
+df1 = df[0:200]
+y = df1['MPG']
+x = list(range(200))
+plt.scatter(x, y, label='Bar')
+#plt.plot(x, x**2, label='quadratic')
+#plt.plot(x, x**3, label='cubic')
+
+plt.xlabel('First 50 cars')
+plt.ylabel('Displacement')
+
+plt.title("Analysis of 1st 50 cars")
+
+plt.legend()
+
+plt.show()
+
+#No of cylinders
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,10))
+df = pd.read_csv('cars1111.csv')
+plt.xlabel('No of cylinders')
+plt.ylabel('AMOUNT OF PRODUCTION')
+Year_count = df['Cylinders'].value_counts()
+Year_count.plot(kind = 'bar')
+Year_count
+#pie analysis
+plt.figure(figsize=(20,10))
+df = pd.read_csv('cars1111.csv')
+plt.title('No of cylinders used')
+Year_count = df['Cylinders'].value_counts()
+Year_count.plot(kind = 'pie')
+
+#Acceleration analysis
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+plt.figure(figsize=(20,10))
+df1 = df[0:200]
+y = df1['Acceleration']
+x = list(range(200))
+plt.scatter(x, y, label='Bar')
+#plt.plot(x, x**2, label='quadratic')
+#plt.plot(x, x**3, label='cubic')
+
+plt.xlabel('First 100 cars')
+plt.ylabel('acceleration')
+
+plt.title("Analysis of 1st 100 cars")
+
+plt.legend()
+
+plt.show()
+
+#Analysis based on year:-
+
+###Acceleration vs Year
+x = df['Year']
+y = df['Acceleration']
+
+plt.xlabel('Year')
+plt.ylabel('acceleration')
+plt.title("Acceleration vs Year")
+
+plt.bar(x,y)
+plt.show()
+
+###Horsepower vs Year
+x = df['Year']
+y = df['Horsepower']
+
+plt.xlabel('Year')
+plt.ylabel('Horsepower')
+plt.title("Horsepower vs Year")
+
+plt.bar(x,y)
+plt.show()
+
+###MPG vs year
+x = df['Year']
+y = df['MPG']
+
+plt.xlabel('Year')
+plt.ylabel('MPG')
+plt.title("MPG vs Year")
+
+plt.bar(x,y)
+plt.show()
+
+
+#Acceleration vs weight
+plt.figure(figsize=(20,10))
+x = df['Weight']
+y = df['Acceleration']
+
+plt.xlabel('Weight')
+plt.ylabel('acceleration')
+
+plt.title("Acceleration vs Weight")
+
+plt.bar(x,y)
+plt.show()
+
+#MPG vs weight
+plt.figure(figsize=(20,10))
+x = df['Weight']
+y = df['MPG']
+
+plt.xlabel('Weight')
+plt.ylabel('MPG')
+
+plt.title("MPG vs Weight")
+
+plt.bar(x,y)
+plt.show()
